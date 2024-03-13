@@ -74,14 +74,14 @@ const Notes = (props) => {
               <h5 className="modal-title" id="exampleModalLabel">
                 Edit Note
               </h5>
-              <button
+              {/* <button
                 type="button"
                 className="close"
                 data-dismiss="modal"
                 aria-label="Close"
               >
                 <span aria-hidden="true">&times;</span>
-              </button>
+              </button> */}
             </div>
             <div className="modal-body">
               <form className="my-3">
@@ -134,14 +134,14 @@ const Notes = (props) => {
               </form>
             </div>
             <div className="modal-footer">
-              <button
+              {/* <button
                 ref={refClose}
                 type="button"
                 className="btn btn-secondary"
                 data-dismiss="modal"
               >
                 Close
-              </button>
+              </button> */}
               <button
                 disabled={
                   note.etitle.length < 5 || note.edescription.length < 5

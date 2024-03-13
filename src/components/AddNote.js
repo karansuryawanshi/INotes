@@ -80,7 +80,6 @@ const AddNote = (props) => {
           Add Note
         </button>
       </form>
-      {/* <Notes></Notes> */}
     </div>
   );
 };

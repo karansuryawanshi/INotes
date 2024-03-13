@@ -25,7 +25,7 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
+    console.log("Hello Buddy");
     // Check weather the user exist with same mail or not
     try {
       let user = await User.findOne({ email: req.body.email }); // await is use to run the full request
@@ -52,6 +52,7 @@ router.post(
           id: user.id,
         },
       };
+      console.log("************** data is ***************", data);
 
       const authToken = jwt.sign(data, JWT_SECRET);
       success = true;
@@ -63,7 +64,7 @@ router.post(
   }
 );
 // ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ROUT 2: Authenticate a userusing post "/api/auth/login" No login require
+// ROUT 2: Authenticate a user using post "/api/auth/login" No login require
 router.post(
   "/login",
   [
@@ -100,7 +101,9 @@ router.post(
           id: user.id,
         },
       };
+
       const authToken = jwt.sign(data, JWT_SECRET);
+      console.log(authToken);
       success = true;
       res.json({ success, authToken });
     } catch (error) {
