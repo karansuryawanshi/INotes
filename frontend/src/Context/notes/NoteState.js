@@ -7,26 +7,32 @@ const NoteState = (props) => {
   const [notes, setNotes] = useState(notesInitial);
   //get all notes
   const getNotes = async () => {
-    const response = await fetch(`${host}/api/notes/fetchallnotes`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
+    const response = await fetch(
+      `https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app/api/notes/fetchallnotes`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
     const json = await response.json();
     console.log(json);
     setNotes(json);
   };
   const addNote = async ({ title, description, tag }) => {
-    const response = await fetch(`${host}/api/notes/addnote`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-      body: JSON.stringify({ title, description, tag }),
-    });
+    const response = await fetch(
+      `https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app/api/notes/addnote`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ title, description, tag }),
+      }
+    );
     const note = await response.json();
 
     // console.log(note);
@@ -35,14 +41,17 @@ const NoteState = (props) => {
   // Delete a Note
   const deleteNote = async (id) => {
     // TODO : API CALL
-    const response = await fetch(`${host}/api/notes/deletenote/${id}`, {
-      // await it is true you should accept it
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
+    const response = await fetch(
+      `https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app/api/notes/deletenote/${id}`,
+      {
+        // await it is true you should accept it
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
     const json = response.json();
     console.log(json);
 
@@ -54,15 +63,18 @@ const NoteState = (props) => {
   };
 
   const editNote = async (id, title, description, tag) => {
-    const response = await fetch(`${host}/api/notes/updatenote/${id}`, {
-      // await it is true you should accept it
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-      body: JSON.stringify({ title, description, tag }),
-    });
+    const response = await fetch(
+      `https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app/api/notes/updatenote/${id}`,
+      {
+        // await it is true you should accept it
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ title, description, tag }),
+      }
+    );
     const json = response.json();
     console.log(json);
 
