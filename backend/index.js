@@ -11,7 +11,9 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: ["https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app"],
+    origin: [
+      "https://virtual-notes-8udxx42jy-karansuryawanshis-projects.vercel.app",
+    ],
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
