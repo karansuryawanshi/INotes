@@ -5,7 +5,7 @@ var cors = require("cors");
 connectToMongo();
 
 const app = express();
-const port = "https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app";
+const port = "5000";
 
 app.use(
   cors({
