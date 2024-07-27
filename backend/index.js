@@ -7,6 +7,8 @@ connectToMongo();
 const app = express();
 const port = "5000";
 
+app.use(cors());
+
 app.use(
   cors({
     origin: ["https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app"],
