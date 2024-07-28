@@ -7,21 +7,30 @@ connectToMongo();
 const app = express();
 const port = "5000";
 
-app.use(cors());
+// app.use(cors());
 
-app.use(
-  cors({
-    origin: ["https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+const corsOptions = {
+  origin: "https://virtual-notes-blush.vercel.app",
+  credentials: true,
+};
 
-app.options("*", cors());
+app.use(cors(corsOptions));
+
+// app.use(
+//   cors({
+//     origin: [
+//       "https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app",
+//       "http://localhost:3000",
+//       "http://localhost:5000",
+//     ],
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
+
+// app.options("*", cors());
 
 app.use(express.json());
-
-// Available Routes
 
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/notes", require("./routes/notes"));
