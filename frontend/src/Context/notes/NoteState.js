@@ -7,7 +7,7 @@ const NoteState = (props) => {
   //get all notes
   const getNotes = async () => {
     const response = await fetch(
-      `https://i-notes-delta.vercel.app/api/notes/fetchallnotes`,
+      `https://i-notes-peach.vercel.app/api/notes/fetchallnotes`,
       {
         method: "GET",
         headers: {
@@ -22,7 +22,7 @@ const NoteState = (props) => {
   };
   const addNote = async ({ title, description, tag }) => {
     const response = await fetch(
-      `https://i-notes-delta.vercel.app/api/notes/addnote`,
+      `https://i-notes-peach.vercel.app/api/notes/addnote`,
       {
         method: "POST",
         headers: {
@@ -41,7 +41,7 @@ const NoteState = (props) => {
   const deleteNote = async (id) => {
     // TODO : API CALL
     const response = await fetch(
-      `https://i-notes-delta.vercel.app/api/notes/deletenote/${id}`,
+      `https://i-notes-peach.vercel.app/api/notes/deletenote/${id}`,
       {
         // await it is true you should accept it
         method: "DELETE",
@@ -63,7 +63,7 @@ const NoteState = (props) => {
 
   const editNote = async (id, title, description, tag) => {
     const response = await fetch(
-      `https://i-notes-delta.vercel.app/api/notes/updatenote/${id}`,
+      `https://i-notes-peach.vercel.app/api/notes/updatenote/${id}`,
       {
         // await it is true you should accept it
         method: "PUT",

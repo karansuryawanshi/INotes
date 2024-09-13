@@ -16,15 +16,23 @@ const port = "5000";
 
 // app.use(cors(corsOptions));
 
-app.use(
-  cors({
-    origin: "https://virtual-notes-blush.vercel.app",
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://virtual-notes-blush.vercel.app/",
+//     methods: ["POST", "GET", "PUT", "DELETE"],
+//     credentials: true,
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//   })
+// );
 
-// app.options("*", cors());
+const corsOptions = {
+  origin: ["https://virtual-notes-blush.vercel.app/"],
+  methods: ["POST", "GET", "PUT", "DELETE"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 

@@ -14,7 +14,7 @@ const Signup = (props) => {
     e.preventDefault();
     const { name, email, password } = credential;
     const response = await fetch(
-      "https://i-notes-delta.vercel.app/api/auth/createuser",
+      "https://i-notes-peach.vercel.app/api/auth/createuser",
       {
         method: "POST",
         // mode: "no-cors",
