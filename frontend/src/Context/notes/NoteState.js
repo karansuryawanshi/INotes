@@ -7,7 +7,7 @@ const NoteState = (props) => {
   //get all notes
   const getNotes = async () => {
     const response = await fetch(
-      `http://localhost:5000/api/notes/fetchallnotes`,
+      `https://i-notes-delta.vercel.app/api/notes/fetchallnotes`,
       {
         method: "GET",
         headers: {
@@ -21,14 +21,17 @@ const NoteState = (props) => {
     setNotes(json);
   };
   const addNote = async ({ title, description, tag }) => {
-    const response = await fetch(`http://localhost:5000/api/notes/addnote`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-      body: JSON.stringify({ title, description, tag }),
-    });
+    const response = await fetch(
+      `https://i-notes-delta.vercel.app/api/notes/addnote`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ title, description, tag }),
+      }
+    );
     const note = await response.json();
 
     // console.log(note);
@@ -38,7 +41,7 @@ const NoteState = (props) => {
   const deleteNote = async (id) => {
     // TODO : API CALL
     const response = await fetch(
-      `http://localhost:5000/api/notes/deletenote/${id}`,
+      `https://i-notes-delta.vercel.app/api/notes/deletenote/${id}`,
       {
         // await it is true you should accept it
         method: "DELETE",
@@ -60,7 +63,7 @@ const NoteState = (props) => {
 
   const editNote = async (id, title, description, tag) => {
     const response = await fetch(
-      `http://localhost:5000/api/notes/updatenote/${id}`,
+      `https://i-notes-delta.vercel.app/api/notes/updatenote/${id}`,
       {
         // await it is true you should accept it
         method: "PUT",
