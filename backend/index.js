@@ -18,7 +18,7 @@ const port = "5000";
 
 app.use(
   cors({
-    origin: "https://i-notes-kqv5w2u8y-karansuryawanshis-projects.vercel.app",
+    origin: "https://virtual-notes-blush.vercel.app",
     methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
