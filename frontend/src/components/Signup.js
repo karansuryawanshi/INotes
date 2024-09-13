@@ -17,7 +17,7 @@ const Signup = (props) => {
       "https://i-notes-delta.vercel.app/api/auth/createuser",
       {
         method: "POST",
-        mode: "no-cors",
+        // mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
