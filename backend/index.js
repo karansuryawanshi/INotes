@@ -27,11 +27,17 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Credentials", "true"); // Explicitly set the header
+  next();
+});
+
 app.use(
   cors({
     origin: "http://localhost:3000", // Allow the client from localhost:3000
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "auth-token"], // Include any custom headers you need
+    credentials: true,
   })
 );
 

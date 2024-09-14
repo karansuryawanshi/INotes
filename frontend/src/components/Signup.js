@@ -13,15 +13,18 @@ const Signup = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credential;
-    const response = await fetch("http://localhost:5000/api/auth/createuser", {
-      method: "POST",
-      // mode: "no-cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, email, password }),
-      credentials: "include",
-    });
+    const response = await fetch(
+      "https://inotes-kg5w.onrender.com/api/auth/createuser",
+      {
+        method: "POST",
+        // mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+        credentials: "include",
+      }
+    );
     const json = await response.json();
     console.log(json);
     if (json.success) {
