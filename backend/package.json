@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "inotebook - Your Notebook on Cloud",
   "main": "index.js",
+  "proxy": "https://inotes-kg5w.onrender.com",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +17,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.9.2",
     "validator": "^13.9.0"
+    
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

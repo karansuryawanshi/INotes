@@ -25,16 +25,15 @@ const port = process.env.PORT || 5000;
 //   })
 // );
 
-const corsOptions = {
-  origin: ["http://localhost:3000"],
-  methods: ["POST", "GET", "PUT", "DELETE"],
-  credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization", "auth-token"],
-};
-app.use(cors(corsOptions));
-app.options("*", cors(corsOptions));
-
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: "http://localhost:3000", // Allow the client from localhost:3000
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization", "auth-token"], // Include any custom headers you need
+  })
+);
 
 app.get("/", (req, res) => {
   res.json("hello");
