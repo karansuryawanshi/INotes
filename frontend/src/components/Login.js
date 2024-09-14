@@ -9,7 +9,7 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      "https://i-notes-peach.vercel.app/api/auth/login",
+      "https://inotes-kg5w.onrender.com/api/auth/login",
       {
         method: "POST",
         headers: {

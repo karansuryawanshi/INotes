@@ -7,6 +7,8 @@ var jwt = require("jsonwebtoken");
 var fetchuser = require("../middleware/fetchuser");
 const JWT_SECRET = "Karanisgooboy";
 
+const app = express();
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ROUT 1: create a user using : post "/api/auth/createuser". Dosent require auth No login req
 router.post(
@@ -20,7 +22,7 @@ router.post(
   ],
   async (req, res) => {
     success = false;
-    // if there are errors return bad request and the errors
+    // res.json("Create User");
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });

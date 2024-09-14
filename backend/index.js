@@ -5,7 +5,7 @@ var cors = require("cors");
 connectToMongo();
 
 const app = express();
-const port = "5000";
+const port = process.env.PORT || 5000;
 
 // app.use(cors());
 
@@ -26,10 +26,10 @@ const port = "5000";
 // );
 
 const corsOptions = {
-  origin: ["https://virtual-notes-blush.vercel.app/"],
+  origin: ["http://localhost:3000"],
   methods: ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
-  allowedHeaders: ["Content-Type", "Authorization"],
+  allowedHeaders: ["Content-Type", "Authorization", "auth-token"],
 };
 app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
